@@ -1,27 +1,33 @@
 import { Card, CardContent } from "@/components/elements/card";
 import Image from "next/image";
 
+interface Product {
+  name: string;
+  price: string;
+  image: string;
+}
+
 export default function ProductSection() {
-  const products = [
+  const products: Product[] = [
     {
       name: "Keripik Pisang Karamel Madu",
       price: "27.500",
-      image: "/products/gambar2.JPG?height=200&width=200",
+      image: "/products/gambar2.JPG",
     },
     {
       name: "Pisang Muli Oven",
       price: "25.000",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/placeholder.svg",
     },
     {
       name: "Keripik Sale Pisang",
       price: "25.000",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/placeholder.svg",
     },
     {
       name: "Keripik Nangka Oven",
       price: "27.000",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/placeholder.svg",
     },
   ];
 
@@ -34,7 +40,6 @@ export default function ProductSection() {
         <p className="text-center mb-12 text-[#8B4513]">
           Produk premium rekomendasi dari kami yang wajib kamu coba!
         </p>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {products.map((product, index) => (
             <Card
@@ -46,7 +51,8 @@ export default function ProductSection() {
                   <Image
                     src={product.image}
                     alt={product.name}
-                    fill
+                    width={200}
+                    height={200}
                     className="object-contain"
                   />
                 </div>
